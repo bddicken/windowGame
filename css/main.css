@@ -1,0 +1,90 @@
+/* to remove the top and left whitespace */
+* { 
+    margin:0; 
+    padding:0; 
+} 
+
+/* Style for all links */
+a:link {
+    text-decoration: none;
+    color: rgb(60, 60, 60);
+}
+a:active {
+    text-decoration: none;
+    color: rgb(60, 60, 60);
+}
+a:visited {
+    text-decoration: none;
+    color: rgb(60, 60, 60);
+}
+a:hover {
+    text-decoration: none;
+    color: rgb(60, 60, 60);
+}
+
+body {
+    font-family: sans-serif;
+    color: rgb(255, 255, 255);
+    display:block;
+    position:fixed;
+    background-color: rgb(80, 80, 80);
+    padding:0px;
+    margin:0px;
+    top:0px;
+    left:0px;
+    bottom:0px;
+    right:0px;
+    overflow:hidden;
+}
+
+#myCanvas {
+    display:block;
+    position:fixed
+    z-index:1;
+}
+
+.button {
+    background: #00BD39;
+    position:fixed;
+    top:275px;
+    left:200px;
+    display:none;
+    width: 200px;
+    height:50px;
+    line-height: 50px; 
+    vertical-align:middle;
+    z-index:5;
+    border-style:solid;
+    border-radius:3px;
+    border-color: #FF8100;
+    text-align:center;
+    font-size:24px;
+}
+
+#button-replay {
+    top:175px;
+    left:200px;
+}
+
+#button-htp {
+    top:10px;
+    left:10px;
+}
+
+.box {
+    background: rgb(80, 80, 80);
+    position:fixed;
+    top:100px;
+    left:100px;
+    display:none;
+    width: 400px;
+    height:200px;
+    z-index:5;
+    border-style:solid;
+    border-radius:3px;
+    border-color: #FF8100;
+    text-align:center;
+    font-size:18px;
+    padding:20px;
+}
+
