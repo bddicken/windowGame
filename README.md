@@ -4,6 +4,8 @@ Window game is an extremely simple game, where you navigate your player (a red s
 avoid NPCs. You navigate the character across the playing field by dragging the game 
 window around your screen.
 
+Try playing it at this link: benjamindicken.com/windowGame
+
 ## Issues
 - No major issues at this time
 
