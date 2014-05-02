@@ -5,7 +5,7 @@ avoid NPCs. You navigate the character across the playing field by dragging the 
 window around your screen.
 
 ## Issues
-    - No major issues at this time
+- No major issues at this time
 
 ## Installing
 
