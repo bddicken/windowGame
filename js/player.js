@@ -21,7 +21,10 @@ function Player(startX, startY, dimention, color)
     
     /* total width/height */
     this.dimention=dimention;
-    
+
+    /* first rount of animation */
+    this.firstAnimation=true;
+
     /* Re-animate player */
     function doAnimate(ctx) {
         ctx.clearRect (this.x-1,this.y-1,dimention+2,dimention+2);
@@ -33,6 +36,12 @@ function Player(startX, startY, dimention, color)
         this.yNew = Math.min(400-dimention, this.yNew);
         var yIncrement = 0;
         var xIncrement = 0;
+
+        if(this.firstAnimation == true) {
+            this.x = this.xNew;
+            this.y = this.yNew;
+            this.firstAnimation = false;
+        }
 
         if(this.yNew<this.y)
             yIncrement=Math.max(-8,this.yNew-this.y);

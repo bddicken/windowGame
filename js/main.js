@@ -1,12 +1,7 @@
 /* WTF should I do when the window loads??? Here is your answer. */
 window.onload = init;
 
-Enemy.prototype  = new Unit(0, 0, 32, "#0ff800");
-Player.prototype = new Unit(0, 0, 32, "#0ff800");
-var mainPlayer = new Player(    ((screen.width/2) - window.screenX),
-                                ((screen.height/2) - window.screenY),
-                                32,
-                                "#FF0000");
+var mainPlayer;
 var enemies = new Array();
 var gameState = 0;
 var c;
@@ -17,8 +12,12 @@ var animationHasStarted = false;
 var winSize = [600,400];
 
 function init() {
-    //window.resizeTo(winSize[0],winSize[1]);
     $("body").css("overflow", "hidden");
+    mainPlayer = new Player(    
+            ((screen.width/2) - window.screenX),
+            ((screen.height/2) - window.screenY),
+            32,
+            "#FF0000");
 
     c=document.getElementById("myCanvas");
     ctx=c.getContext("2d");
@@ -26,14 +25,15 @@ function init() {
     var w = $(window).width(),
         h = $(window).height();
     c.width = w; c.height = h;
-    ctx.font="24px Georgia";
+    ctx.font="26px Arial";
     ctx.clearRect (0,0,winSize[0],winSize[1]);
 
-    ctx.fillStyle="#FF0000";
-    ctx.fillRect(   ((screen.width/2) - window.screenX),
-                    ((screen.height/2) - window.screenY),
-                    32,
-                    32);
+    ctx.fillStyle="#618494";
+    ctx.fillRect(   
+            ((screen.width/2) - window.screenX),
+            ((screen.height/2) - window.screenY),
+            32,
+            32);
     enemies[1]=new Enemy(0, 0, 16, "#00ff00");
     enemies[2]=new Enemy(0, 0, 32, "#000000");
     enemies[3]=new Enemy(0, 0, 64, "#0Fa0fa");
@@ -78,23 +78,18 @@ function animationLoop() {
     // Main menu
     if(gameState == 0) {
         ctx.clearRect (0,0,winSize[0],winSize[1]);
-        var rpl = document.getElementById("button-replay");
-        rpl.style.display = "none";
-        rpl = document.getElementById("button-start");
-        rpl.style.display = "inline";
-        rpl = document.getElementById("button-menu");
-        rpl.style.display = "none";
-        rpl = document.getElementById("button-htp");
-        rpl.style.display = "inline";
+        makeTagVisible("button-start");
+        makeTagVisible("button-htp");
+        makeTagInvisible("button-replay");
+        makeTagInvisible("button-menu");
     }
     // Playing the game
     else if(gameState == 1) {
-        var rpl = document.getElementById("button-replay");
-        rpl.style.display = "none";
-        var mm = document.getElementById("button-menu");
-        mm.style.display = "none";
-        rpl = document.getElementById("button-htp");
-        rpl.style.display = "none";
+        makeTagInvisible("button-start");
+        makeTagInvisible("button-htp");
+        makeTagInvisible("button-replay");
+        makeTagInvisible("button-menu");
+        
         mainPlayer.animate(ctx);
         enemies[1].animate(ctx);
         enemies[2].animate(ctx);
@@ -109,15 +104,17 @@ function animationLoop() {
     }
     // Lost the game
     else if(gameState == 2) {
-        var rpl = document.getElementById("button-replay");
-        rpl.style.display = "inline";
-        rpl = document.getElementById("button-start");
-        rpl.style.display = "none";
-        rpl = document.getElementById("button-menu");
-        rpl.style.display = "inline";
-        rpl = document.getElementById("button-htp");
-        rpl.style.display = "none";
+        makeTagVisible("button-replay");
+        makeTagVisible("button-menu");
     }
+}
+
+function makeTagVisible(tagName) {
+    document.getElementById(tagName).style.display = "inline";
+}
+
+function makeTagInvisible(tagName) {
+    document.getElementById(tagName).style.display = "none";
 }
 
 function toggleVisible(v) {

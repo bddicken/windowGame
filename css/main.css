@@ -7,27 +7,27 @@
 /* Style for all links */
 a:link {
     text-decoration: none;
-    color: rgb(60, 60, 60);
+    color: rgb(255, 255, 255);
 }
 a:active {
     text-decoration: none;
-    color: rgb(60, 60, 60);
+    color: rgb(255, 255, 255);
 }
 a:visited {
     text-decoration: none;
-    color: rgb(60, 60, 60);
+    color: rgb(255, 255, 255);
 }
 a:hover {
     text-decoration: none;
-    color: rgb(60, 60, 60);
+    color: rgb(255, 255, 255);
 }
 
 body {
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
     color: rgb(255, 255, 255);
     display:block;
     position:fixed;
-    background-color: rgb(180, 180, 180);
+    background-color: #C9CFD0;
     padding:0px;
     margin:0px;
     top:0px;
@@ -44,7 +44,7 @@ body {
 }
 
 .button {
-    background: #00BD39;
+    background: #618494;
     position:fixed;
     top:275px;
     left:200px;
@@ -55,10 +55,11 @@ body {
     vertical-align:middle;
     z-index:5;
     border-style:solid;
-    border-radius:3px;
-    border-color: #FF8100;
+    border-radius:5px;
+    border-color: #E1B576;
     text-align:center;
     font-size:24px;
+    color: #FFFFFF;
 }
 
 #button-replay {
@@ -73,6 +74,7 @@ body {
 
 .box {
     background: rgb(80, 80, 80);
+    background: #618494;
     position:fixed;
     top:100px;
     left:100px;
@@ -82,9 +84,10 @@ body {
     z-index:5;
     border-style:solid;
     border-radius:3px;
-    border-color: #FF8100;
+    border-color: #E1B576;
     text-align:center;
     font-size:18px;
     padding:20px;
+    color: #FFFFFF;
 }
 

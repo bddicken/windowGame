@@ -21,11 +21,11 @@
     </div>
 
     <a href="#" class="button" id="button-replay" type="button" style="display:none;" value="play again?" onclick="init();gameState=1;">play again? </a>
-    <a href="#" class="button" id="button-start" type="button" style="display:inline;" value="start playing" onclick="init();gameState=1;toggleVisible(this);">start playing</a>
-    <a href="#" class="button" id="button-menu" type="button" style="display:none;" value="main menu" onclick="gameState=0;toggleVisible(this);">main menu</a>
-    <a href="#" class="button" id="button-htp" type="button" style="display:inline;" value="how to p[lay" onclick="gameState=0;toggleVisible(document.getElementById('box-instructions'));">how to play</a>
+    <a href="#" class="button" id="button-start" type="button" style="display:none;" value="start playing" onclick="init();gameState=1;">start playing</a>
+    <a href="#" class="button" id="button-menu" type="button" style="display:none;" value="main menu" onclick="gameState=0;">main menu</a>
+    <a href="#" class="button" id="button-htp" type="button" style="display:none;" value="how to play" onclick="gameState=0;toggleVisible(document.getElementById('box-instructions'));">how to play</a>
 
-    <div class="box" id="box-instructions"> In this game, you must keep your character (the red square on the screen) from touching any other square that is moving around. Your character always stays in the center of your computer screen. You move it around the map by grabbing to top of the window, and dragging the window around. The longer you play, the more challenging it gets. Good luck!</div>
+    <div class="box" id="box-instructions" style="display:none;"> In this game, you must keep your character (the red square on the screen) from touching any other square that is moving around. Your character always stays in the center of your computer screen. You move it around the map by grabbing to top of the window, and dragging the window around. The longer you play, the more challenging it gets. Good luck!</div>
 
 </body>
 
