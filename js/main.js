@@ -1,6 +1,8 @@
 /* WTF should I do when the window loads??? Here is your answer. */
 window.onload = init;
 
+var ENEMY_INTERVAL = 5000;
+var lastTime;
 var mainPlayer;
 var enemies = new Array();
 var gameState = 0;
@@ -34,18 +36,21 @@ function init() {
             ((screen.height/2) - window.screenY),
             32,
             32);
-    enemies[1]=new Enemy(0, 0, 16, "#00ff00");
-    enemies[2]=new Enemy(0, 0, 32, "#000000");
-    enemies[3]=new Enemy(0, 0, 64, "#0Fa0fa");
+    enemies = new Array();
+    enemies[0]=new Enemy(0, 0, Random.getRandomInt(16, 64), Random.getRandomColor());
+    enemies[1]=new Enemy(0, 0, Random.getRandomInt(16, 64), Random.getRandomColor());
+    enemies[2]=new Enemy(0, 0, Random.getRandomInt(16, 64), Random.getRandomColor());
     
     if(!animationHasStarted) {
         animationHasStarted = true;
         setInterval(animationLoop,20);
     }
+
+    initTiming();
 }
 
 function playerHasBeenHit() {
-    for(var i=1; i < enemies.length; i++) {
+    for(var i=0; i < enemies.length; i++) {
         if( pis(enemies[i].x, 
                 enemies[i].y, 
                 mainPlayer))
@@ -89,11 +94,14 @@ function animationLoop() {
         makeTagInvisible("button-htp");
         makeTagInvisible("button-replay");
         makeTagInvisible("button-menu");
+
+        handleAddEnemy();
         
         mainPlayer.animate(ctx);
-        enemies[1].animate(ctx);
-        enemies[2].animate(ctx);
-        enemies[3].animate(ctx);
+        var length = enemies.length;
+        for(var i = 0; i < length; i++) {
+            enemies[i].animate(ctx);
+        }
         
         // Pass the baton to gameState == 2
         if(playerHasBeenHit()) {
@@ -106,6 +114,31 @@ function animationLoop() {
     else if(gameState == 2) {
         makeTagVisible("button-replay");
         makeTagVisible("button-menu");
+    }
+}
+
+function initTiming() {
+    var tempTime = new Date();
+    lastTime = tempTime.getTime();
+}
+
+function shouldAddEnemy() {
+    var tempTime = new Date();
+    var newTime = tempTime.getTime();
+    if (newTime - lastTime > ENEMY_INTERVAL) {
+        initTiming();
+        return true;
+    }
+    return false;
+}
+
+function handleAddEnemy() {
+    if (shouldAddEnemy()) {
+        enemies.push(new Enemy(
+                0, 
+                0, 
+                Random.getRandomInt(16, 64), 
+                Random.getRandomColor()));
     }
 }
 
