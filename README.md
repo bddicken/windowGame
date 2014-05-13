@@ -12,4 +12,12 @@ Try playing it at this link: benjamindicken.com/windowGame
 ## Installing
 
 This is a simple web application, designed to be run on an apache-web server (or any 
-reasonable HTTP server, really)
+reasonable HTTP server, really). An easy was to start up a web server for this locally
+(assuming you have `python` installed) is to run the following command in the root
+directory of this project.
+
+```
+python -m SimpleHTTPServer 8000
+```
+
+You can then go to `localhost:8000` in your browser to play it.
